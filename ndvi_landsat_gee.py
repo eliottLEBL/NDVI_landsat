@@ -118,7 +118,7 @@ def fusionner():
     df = pd.concat([pd.read_csv(f, dtype={ID_FIELD: str}) for f in fichiers])
     df = df.sort_values([ID_FIELD, "annee"])
     sortie = DOSSIER_CSV + r"\ndvi_landsat_iris_idf.csv"
-    df.to_csv(sortie, index=False)
+    df.to_csv(sortie, index=False, sep=";", decimal=",", encoding="utf-8-sig")  # format Excel FR
     print(f"{len(fichiers)} années, {df[ID_FIELD].nunique()} IRIS -> {sortie}")
 
 
